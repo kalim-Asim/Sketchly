@@ -1,6 +1,9 @@
 import React from 'react';
-import { ArrowRight, Infinity, Users, Zap, Github, Twitter, Mail } from 'lucide-react';
+import { ArrowRight, Infinity, Users, Zap, Github, Twitter, Mail, Linkedin } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import pic from "@/public/preveiw.png";
+
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -10,7 +13,7 @@ const LandingPage = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <span className="text-2xl font-bold text-blue-400">
-                PlayGrounds
+                Sketchly
               </span>
             </div>
             <div className="flex items-center gap-4">
@@ -55,17 +58,16 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/* Preview Image Placeholder */}
-          <div className="mt-16 rounded-lg overflow-hidden bg-gray-800 border border-gray-700 shadow-2xl">
-            <div className="w-full h-96 bg-gray-800 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <p className="text-gray-400">PlayGrounds Interface Preview</p>
-              </div>
+          {/* Preview Image */}
+            <div className="mt-16 rounded-lg overflow-hidden shadow-2xl border">
+              <Image
+                src={pic}
+                alt="PlayGrounds Interface"
+                className="w-full object-cover"
+                width={1000}
+                height={800}
+              />
             </div>
-          </div>
         </div>
       </section>
 
@@ -144,27 +146,27 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-500">
-              © 2024 PlayGrounds. All rights reserved.
+              © 2025 Sketchly. All rights reserved.
             </div>
             <div className="flex gap-6">
-              <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">
+              <a href="Terms" className="text-gray-500 hover:text-blue-400 transition-colors">
                 Terms
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">
+              <a href="Privacy" className="text-gray-500 hover:text-blue-400 transition-colors">
                 Privacy
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">
+              <a href="Contact" className="text-gray-500 hover:text-blue-400 transition-colors">
                 Contact
               </a>
             </div>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">
+              <a href="https://github.com/kalim-Asim/Sketchly" className="text-gray-500 hover:text-blue-400 transition-colors">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">
-                <Twitter className="w-5 h-5" />
+              <a href="https://linkedin.com/in/asim-kalim-b4114b167" className="text-gray-500 hover:text-blue-400 transition-colors">
+                <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-500 hover:text-blue-400 transition-colors">
+              <a href="mailto:asim1306iiit@gmail.com" className="text-gray-500 hover:text-blue-400 transition-colors">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
