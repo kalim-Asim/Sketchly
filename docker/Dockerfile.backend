@@ -21,5 +21,4 @@ RUN pnpm install --frozen-lockfile
 EXPOSE 3002
 
 # At runtime: generate Prisma client, build, and start backend
-CMD ["sh", "-c", "pnpm run db:generate --filter=http-backend && pnpm run build --filter=http-backend && pnpm run start --filter=http-backend"]
-
+CMD ["sh", "-c", "pnpm run db:generate --filter=@repo/db && pnpm run build --filter=http-backend && pnpm run start --filter=http-backend"]
