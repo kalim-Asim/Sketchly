@@ -1,8 +1,11 @@
-FROM node:alpine
+# docker/backend
+FROM node:18-alpine
 
 WORKDIR /usr/src/app
+
 RUN npm install -g pnpm
 
+# Copy monorepo files
 COPY package*.json ./
 COPY ./packages ./packages
 COPY ./turbo.json ./turbo.json
@@ -11,11 +14,11 @@ COPY ./.npmrc ./.npmrc
 COPY ./pnpm-workspace.yaml ./pnpm-workspace.yaml
 COPY ./apps/http-backend ./apps/http-backend
 
+# Install dependencies for all workspaces
 RUN pnpm install --frozen-lockfile
-RUN pnpm run db:generate
 
-RUN pnpm run build --filter=http-backend
-
+# Set default port
 EXPOSE 3002
 
-CMD ["pnpm", "run", "start", "--filter=http-backend"]
+# At runtime: generate Prisma client, build, and start backend
+CMD ["sh", "-c", "pnpm run db:generate && pnpm run build --filter=http-backend && pnpm run start --filter=http-backend"]
