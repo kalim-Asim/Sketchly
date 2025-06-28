@@ -10,7 +10,7 @@ COPY . .
 RUN pnpm install --frozen-lockfile
 
 # Only generate Prisma client once
-RUN pnpm run db:generate
+# RUN pnpm run db:generate
 
 # Build in steps to reduce memory usage
 RUN pnpm run build --filter=@repo/common
@@ -20,4 +20,5 @@ RUN pnpm run build --filter=http-backend
 
 EXPOSE 3002
 
-CMD ["pnpm", "run", "start", "--filter=http-backend"]
+# CMD ["pnpm", "run", "start", "--filter=http-backend"]
+CMD ["sh", "-c", "pnpm run db:generate && pnpm run start --filter=http-backend"]
