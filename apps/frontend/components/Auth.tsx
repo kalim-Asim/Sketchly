@@ -14,7 +14,7 @@ export function Auth({ isSignIn }: { isSignIn: boolean }) {
     <div className="h-screen w-screen flex items-center justify-center">
       <div className="p-6 m-2 rounded-lg border-2 border-border md:p-8 shadow">
         <h1 className="text-xl sm:text-2xl font-bold text-center text-blue-500 underline">
-          {isSignIn ? "Sign In to your Account" : "Sign up with Playgrounds"}
+          {isSignIn ? "Sign In to your Account" : "Sign up with Sketchly"}
         </h1>
         <label className="my-2 md:my-4 block">
           <p className="">Email address</p>

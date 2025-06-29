@@ -52,7 +52,7 @@ export default function Page() {
       <div>
         <ul className="flex justify-between p-4 items-center">
           <li>
-            <h1 className="text-2xl md:text-3xl font-bold">PlayGrounds</h1>
+            <h1 className="text-2xl md:text-3xl font-bold">Sketchly</h1>
           </li>
           <li className="flex gap-1">
             <Dialog>

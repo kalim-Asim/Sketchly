@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PlayGrounds",
+  title: "Sketchly",
   description: "A Whiteboard(in black) for your ideas",
 };
 

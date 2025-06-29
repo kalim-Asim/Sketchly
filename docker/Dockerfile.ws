@@ -11,11 +11,11 @@ COPY ./.npmrc ./.npmrc
 COPY ./pnpm-workspace.yaml ./pnpm-workspace.yaml
 COPY ./apps/ws-backend ./apps/ws-backend
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install 
 RUN pnpm run db:generate
 
-RUN pnpm run build --filter=ws-backend
+RUN pnpm run build 
 
 EXPOSE 8080
 
-CMD ["pnpm", "run", "start", "--filter=ws-backend"]
+CMD ["pnpm", "run", "start:websocket"]

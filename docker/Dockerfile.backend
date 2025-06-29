@@ -1,24 +1,20 @@
 FROM node:alpine
 
 WORKDIR /usr/src/app
-ENV NODE_OPTIONS=--max-old-space-size=256
 
 RUN npm install -g pnpm
 
-COPY . .
+COPY ./packages ./packages
+COPY ./pnpm-lock.yaml ./pnpm-lock.yaml
+COPY ./pnpm-workspace.yaml ./pnpm-workspace.yaml
+COPY ./package.json ./package.json
+COPY ./turbo.json ./turbo.json
 
-RUN pnpm install --frozen-lockfile
+COPY ./apps/http-backend ./apps/http-backend
 
-# Only generate Prisma client once
-# RUN pnpm run db:generate
-
-# Build in steps to reduce memory usage
-RUN pnpm run build --filter=@repo/common
-RUN pnpm run build --filter=@repo/backend-common
-RUN pnpm run build --filter=@repo/db
-RUN pnpm run build --filter=http-backend
+RUN pnpm install 
+RUN pnpm run db:generate
 
 EXPOSE 3002
 
-# CMD ["pnpm", "run", "start", "--filter=http-backend"]
-CMD ["sh", "-c", "pnpm run db:generate && pnpm run start --filter=http-backend"]
+CMD ["pnpm", "run", "start:backend"]

@@ -62,7 +62,7 @@ const LandingPage = () => {
             <div className="mt-16 rounded-lg overflow-hidden shadow-2xl border">
               <Image
                 src={pic}
-                alt="PlayGrounds Interface"
+                alt="Sketchly Interface"
                 className="w-full object-cover"
                 width={1000}
                 height={800}
@@ -133,7 +133,7 @@ const LandingPage = () => {
             Ready to Transform Your Workflow?
           </h2>
           <p className="text-xl text-gray-400 mb-8">
-            Join thousands of teams already collaborating on PlayGrounds.
+            Join thousands of teams already collaborating on Sketchly.
           </p>
           <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 text-lg rounded-md transition-colors">
             Start Free Trial

@@ -3,6 +3,7 @@ FROM node:alpine
 WORKDIR /usr/src/app
 RUN npm install -g pnpm
 
+ARG DATABASE_URL
 COPY package*.json ./
 COPY ./packages ./packages
 COPY ./turbo.json ./turbo.json
@@ -11,11 +12,10 @@ COPY ./.npmrc ./.npmrc
 COPY ./pnpm-workspace.yaml ./pnpm-workspace.yaml
 COPY ./apps/frontend ./apps/frontend
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install 
 RUN pnpm run db:generate
-
-RUN pnpm run build --filter=frontend
+RUN DATABASE_URL=${DATABASE_URL} pnpm run build
 
 EXPOSE 3000
 
-CMD ["pnpm", "run", "start", "--filter=frontend"]
+CMD ["pnpm", "run", "start:frontend"]

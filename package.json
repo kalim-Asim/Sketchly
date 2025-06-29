@@ -11,7 +11,10 @@
     "lint": "turbo lint",
     "start": "turbo start",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "db:generate": "turbo run --filter=@repo/db db:generate"
+    "db:generate": "cd packages/db && pnpm prisma generate && cd ../..",
+    "start:frontend": "cd apps/frontend && pnpm run start",
+    "start:backend": "cd apps/http-backend/src && pnpm run main.ts",
+    "start:websocket": "cd apps/ws-backend/src && pnpm run main.ts"
   },
   "devDependencies": {
     "prettier": "^3.4.2",
