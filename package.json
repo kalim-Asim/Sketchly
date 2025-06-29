@@ -13,8 +13,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:generate": "cd packages/db && pnpm prisma generate && cd ../..",
     "start:frontend": "cd apps/frontend && pnpm run start",
-    "start:backend": "cd apps/http-backend/src && pnpm run main.ts",
-    "start:websocket": "cd apps/ws-backend/src && pnpm run main.ts"
+    "start:backend": "cd apps/http-backend/src && pnpm tsc && pnpm run start main.ts",
+    "start:websocket": "cd apps/ws-backend/src && pnpm tsc &&  pnpm run start main.ts"
   },
   "devDependencies": {
     "prettier": "^3.4.2",
